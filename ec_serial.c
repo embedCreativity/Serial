@@ -200,9 +200,9 @@ int SerialRead(uint8_t *result, uint32_t len, uint32_t timeOutMs) {
                 return SERIAL_ERROR_CODE;
             }
         } else {
-            // caller does not have a minimum requested data length. Return
+            // caller does not have a timeout defined. Return
             // what we've got now
-            if ( len == 0 ) {
+            if ( timeOutMs == 0 ) {
                 return bytesRead;
             }
             if ( bytesRead == 0 ) {
